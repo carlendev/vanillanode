@@ -1,0 +1,11 @@
+{
+  "name": "rest",
+  "version": "1.0.0",
+  "description": "rest api in vanilla node",
+  "main": "index.js",
+  "author": "Yann Carlen",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "MIT"
+}
