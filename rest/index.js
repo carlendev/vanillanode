@@ -27,18 +27,15 @@ const writeHead = (res, code, props) => res.writeHead(code, props)
 
 const resWrite = (res, props) => res.write(JSON.stringify(props))
 
-const notFound = (req, res) => {
-    const data = { message: 'Not Found', method: req.method, url: req.url }
-    apiHeader(res, codeNotFound, data)
+const resApi = (res, code, data) => {
+    apiHeader(res, code, data)
     resWrite(res, data)
-    res.end()
+    res.end()    
 }
 
-const home = (req, res) => {    
-    const data = { message: 'home', method: req.method, url: req.url }
-    apiHeader(res, codeOK, data)
-    resWrite(res, data)
-}
+const notFound = (req, res) => resApi(res, codeNotFound, { message: 'Not Found', method: req.method, url: req.url })
+
+const home = (req, res) => resApi(res, codeOK, { message: 'home', method: req.method, url: req.url })
 
 const router = {
     'GET /': home,
