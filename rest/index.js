@@ -51,9 +51,7 @@ const request = (req, res) => {
     const urlP = url.parse(req.url)
     const method = req.method
     
-    //TODO(carlendev) set header
     req.on('data', chunk => append(chunk, body))
-    //TODO(carlendev) add 404
     //TODO(carlendev) check GET/POST
     req.on('end', () => {
         const route = getRoute(method, urlP)
